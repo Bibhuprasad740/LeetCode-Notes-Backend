@@ -5,6 +5,15 @@ const sectionSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  numberOfQuestions: {
+    type: Number,
+    default: 0,
+  },
+  userId: {
+    type: mongoose.Types.ObjectId,
+    ref: "User",
+    required: true,
+  }
 }, {
   timestamps: true,
 });

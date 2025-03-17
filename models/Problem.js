@@ -6,6 +6,11 @@ const problemSchema = mongoose.Schema({
     ref: "Section",
     required: true,
   },
+  userId: {
+    type: mongoose.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
   questionName: {
     type: String,
     required: true,
