@@ -3,6 +3,7 @@ const Section = require("../models/Section");
 
 // Get problems of a section
 exports.getProblemsBySectionId = async (req, res) => {
+    console.log('Trying to get problems of a section');
     try {
         const sectionId = req.params.sectionId;
         if (!sectionId) return res.status(400).json({ message: "Section ID is required" });
@@ -18,6 +19,7 @@ exports.getProblemsBySectionId = async (req, res) => {
 
 // Add a new problem to a section
 exports.addProblemToSection = async (req, res) => {
+    console.log('Trying to add a new problem to a section');
     try {
         const { sectionId, questionName, leetcodeLink, description, sampleInput, sampleOutput, tags, difficulty, intuition, code, imageUrl } = req.body;
 
@@ -40,6 +42,7 @@ exports.addProblemToSection = async (req, res) => {
 
 // Get a problem by Id
 exports.getProblemById = async (req, res) => {
+    console.log('Trying to get a problem by ID');
     try {
         const problemId = req.params.id;
         if (!problemId) return res.status(400).json({ message: "Problem ID is required" });
@@ -58,6 +61,7 @@ exports.getProblemById = async (req, res) => {
 // Update a problem by id
 
 exports.updateProblemById = async (req, res) => {
+    console.log('Trying to update a problem by ID');
     try {
         const problemId = req.params.id;
         if (!problemId) return res.status(400).json({ message: "Problem ID is required" });
@@ -79,6 +83,7 @@ exports.updateProblemById = async (req, res) => {
 // Delete a problem by id
 
 exports.deleteProblemById = async (req, res) => {
+    console.log('Trying to delete a problem by ID');
     try {
         const problemId = req.params.id;
         if (!problemId) return res.status(400).json({ message: "Problem ID is required" });

@@ -25,6 +25,7 @@ exports.createSection = async (req, res) => {
 // Edit section by id
 
 exports.editSectionById = async (req, res) => {
+    console.log('Trying to edit a section');
     try {
         const sectionId = req.params.id;
         let { name } = req.body;
@@ -45,6 +46,7 @@ exports.editSectionById = async (req, res) => {
 
 // Get all sections
 exports.getAllSections = async (req, res) => {
+    console.log('Trying to get all the sections');
     try {
         const sections = await Section.find({ userId: req.user._id });
         res.status(200).json(sections);
@@ -55,6 +57,7 @@ exports.getAllSections = async (req, res) => {
 
 // Get a section by ID
 exports.getSection = async (req, res) => {
+    console.log('Trying to get a section by ID');
     try {
         const sectionId = req.params.id;
 
@@ -71,6 +74,7 @@ exports.getSection = async (req, res) => {
 // Delete a section
 
 exports.deleteSection = async (req, res) => {
+    console.log('Trying to delete a section by id');
     try {
         const section = await Section.findByIdAndDelete(req.params.id);
         if (!section) return res.status(404).json({ message: 'Section not found' });
