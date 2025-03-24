@@ -17,6 +17,17 @@ exports.getProblemsBySectionId = async (req, res) => {
     }
 }
 
+exports.getAllProblems = async (req, res) => {
+    console.log('Trying to get all problems');
+    try {
+        const problems = await Problem.find({ userId: req.user._id });
+        res.status(200).json(problems);
+    } catch (exception) {
+        console.error(exception);
+        return res.status(500).json({ message: exception.message ?? "Server error" });
+    }
+}
+
 // Add a new problem to a section
 exports.addProblemToSection = async (req, res) => {
     console.log('Trying to add a new problem to a section');

@@ -3,11 +3,14 @@ const router = express.Router();
 
 const problemController = require('../controllers/problem_controller');
 
+// GET /api/problems/all
+router.get('/all', problemController.getAllProblems);
+
 // GET /api/problems/<SECTIONID>
 router.get('/:sectionId', problemController.getProblemsBySectionId);
 
 // GET /api/problems/<ID>
-router.get('/:id',problemController.getProblemById);
+router.get('/:id', problemController.getProblemById);
 
 // POST /api/problems/add
 router.post('/add', problemController.addProblemToSection);
